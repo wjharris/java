@@ -72,6 +72,7 @@ public class LambdaChallenge {
             int numberOfLines = Integer.valueOf(reader.readLine());
             return IntStream.range(0, numberOfLines)
                     .mapToObj(lineReaderFunc(reader))
+                    .peek(str -> System.out.println("Running line: " + str))
                     .map(line -> line.split(" "))
                     .map(values -> Arrays.stream(values).map(Integer::valueOf)
                             .collect(Collectors.toList()))

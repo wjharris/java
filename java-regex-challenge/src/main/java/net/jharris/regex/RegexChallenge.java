@@ -32,7 +32,9 @@ public class RegexChallenge {
             //25 followed by a 0-5 digit
             var pattern = Pattern.compile("^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$");
 
-            return ipList.stream().map(ip -> pattern.matcher(ip).matches());
+            return ipList.stream()
+                    .peek(ip -> System.out.println("Checking ip: " + ip))
+                    .map(ip -> pattern.matcher(ip).matches());
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
