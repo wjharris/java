@@ -35,6 +35,8 @@ public class GameChallenge {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                     gameBoardList.add(new GameBoard(3, 1, new Integer[]{0, 1, 1}));
+                } catch (IndexOutOfBoundsException ex) {
+                    gameBoardList.add(new GameBoard(3, 1, new Integer[]{0, 1, 1}));
                 }
             });
 
@@ -52,7 +54,16 @@ public class GameChallenge {
         public GameBoard(int n, int leap, Integer[] board) {
             this.n = n;
             this.leap = leap;
-            this.board = board;
+            if (board.length < n) {
+                var newBoard = new Integer[this.n];
+                Arrays.fill(newBoard, 1);
+                for (int i = 0; i < board.length; i++) {
+                    newBoard[i] = board[i];
+                }
+                this.board = newBoard;
+            } else {
+                this.board = board;
+            }
         }
 
         public boolean playIt() {
