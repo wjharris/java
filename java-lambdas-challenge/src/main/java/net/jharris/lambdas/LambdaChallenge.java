@@ -60,6 +60,11 @@ public class LambdaChallenge {
     private Function<Boolean, String> isPrimeMessage = bool -> bool ? "PRIME" : "COMPOSITE";
     private Function<Boolean, String> isPalindromeMessage = bool -> bool ? "PALINDROME" : "NOT PALINDROME";
 
+    /**
+     * Returns a stream with the results mapped from the input stream.
+     * @param inputStreamSupplier
+     * @return
+     */
     public Stream<String> doChallenge(Supplier<InputStream> inputStreamSupplier) {
         try {
             InputStream stream = inputStreamSupplier.get();

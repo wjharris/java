@@ -27,7 +27,7 @@ public class ChallengeTest {
                 results.add(line);
             }
 
-            LambdaChallenge challenge = new LambdaChallenge();
+            var challenge = new LambdaChallenge();
             var valueStream = challenge.doChallenge(() -> valuesStream);
             var testStream = results.stream();
 
