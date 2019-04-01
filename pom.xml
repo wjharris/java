@@ -11,6 +11,7 @@
     <modules>
         <module>java-lambdas-challenge</module>
         <module>java-regex-challenge</module>
+        <module>game-challenge</module>
     </modules>
 
     <properties>
